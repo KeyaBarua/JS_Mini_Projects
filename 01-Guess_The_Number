@@ -1,0 +1,24 @@
+/* Write a JS program to generate a random number and store it in a variable. The program then takes an input from the user to tell them whether the guess was correct, greater than or lesser than the random number. 
+100 - (number of guesses) is the score of the player. The program is expected to terminate once the number is guessed. The number should be between 1 - 100. */
+
+let random_number = Math.floor((Math.random() * 100) + 1)
+// console.log(random_number)
+let input
+let guesses = 0
+do{
+  input = Number(prompt("Guess the number:"))
+  if(random_number < input){
+    console.log("Your guess is wrong. The number is less than the guessed one.")
+    guesses++
+  }
+  else if(random_number > input){
+    console.log("Your guess is wrong. The number is greater than the guessed one.")
+    guesses++
+  }
+  else{
+    console.log("Good job! You guessed the correct number.")
+    guesses++
+  }
+} while(input != random_number)
+
+console.log("The random number generated was", random_number, '\nYour Score:', (100 - guesses))
