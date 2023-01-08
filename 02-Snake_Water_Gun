@@ -1,8 +1,5 @@
 /* Write a JS program to create a game of snake, water and gun. The user can select S, W and G. The computer will be able to select randomly S, W or G and the winner is declared using alert. Use prompt and confirm as required. */
 
-// document.write("Welcome to the game of Snake, Water and Gun!")
-
-
 const computer_selection = () =>{
   let obj = {0: 'S', 1: 'W', 2: 'G'}
   let rnum = Math.floor(Math.random() * 2)
