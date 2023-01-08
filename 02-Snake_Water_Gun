@@ -1,0 +1,56 @@
+/* Write a JS program to create a game of snake, water and gun. The user can select S, W and G. The computer will be able to select randomly S, W or G and the winner is declared using alert. Use prompt and confirm as required. */
+
+// document.write("Welcome to the game of Snake, Water and Gun!")
+
+
+const computer_selection = () =>{
+  let obj = {0: 'S', 1: 'W', 2: 'G'}
+  let rnum = Math.floor(Math.random() * 2)
+  return obj[rnum]
+}
+
+const declare_winner = (user, computer) =>{
+  if((user.toUpperCase() == 'S' && computer.toUpperCase() == 'W') || (user.toUpperCase() == 'W' && computer.toUpperCase() == 'G') || (user.toUpperCase() == 'G' && computer.toUpperCase() == 'S')){
+    return 'You'
+  }
+  else if((user.toUpperCase() == 'W' && computer.toUpperCase() == 'S') || (user.toUpperCase() == 'G' && computer.toUpperCase() == 'W') || (user.toUpperCase() == 'S' && computer.toUpperCase() == 'G')){
+    return 'Computer'
+  }
+  else{
+    return 'Tie'
+  }
+}
+
+
+let p_u = 0, p_c = 0
+let c = true
+while(c){
+  let num = Number(prompt("How many rounds do you want to play?"))
+  let i = 0
+  while(i < num){
+    let user_select = prompt("Your turn:(S, W, G)")
+    let comp_select = computer_selection()
+    alert("Computer's turn: " + comp_select)
+    let winner = declare_winner(user_select, comp_select)
+    alert("Winner: " + winner)
+    if(winner == 'You'){
+      p_u++
+    }
+    else if(winner == 'Computer'){
+      p_c++
+    }
+    else{
+      p_c += 0
+      p_u += 0
+    }
+    i++
+  }
+
+  if(p_u > p_c){
+    alert("Congratulations! You win!")
+  }
+  else{
+    alert("Oops! Computer wins!")
+  }
+  c = confirm("Do you want to play again?")
+}
